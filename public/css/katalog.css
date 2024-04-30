@@ -1,0 +1,62 @@
+/* css katalog */
+.button-action {
+    margin-left: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 2px solid #6b5048;
+    background-color: #6b5048;
+    box-shadow: 0px 4px 4px 0px rgb(0, 0, 0, 0, 0, 25);
+    text-align: left;
+    display: inline-flex;
+}
+.btn-tambah-katalog {
+    font-size: 17px; /* Ukuran font untuk label dan input */
+    font-weight: 500;
+    color: #ffffff;
+    padding: 6px;
+}
+.card-katalog {
+    border-radius: 21px;
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    max-height: 400px;
+    min-height: 250px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.card-img-top {
+    border-radius: 10px;
+    padding: 20px 20px 0 20px; /* padding: atas kanan bawah kiri */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.card-title {
+    margin-bottom: 14px;
+    overflow-wrap: break-word;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    color: #000000;
+}
+.card-text {
+    align-self: flex-start;
+    text-align: left;
+    overflow-wrap: break-word;
+    font-family: "Poppins";
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    color: var(--text-gray, #878787);
+    max-height: 100px; /* Atur tinggi maksimum elemen */
+    overflow-y: auto; /* Aktifkan scroll vertikal jika konten melebihi tinggi maksimum */
+}
+.card-text::-webkit-scrollbar {
+    width: 5px; /* Atur lebar scrollbar */
+}
+.card-text::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Atur warna thumb scrollbar menjadi transparan */
+}
