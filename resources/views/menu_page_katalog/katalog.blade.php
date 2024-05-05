@@ -1,26 +1,35 @@
 @extends('main')
 @section('konten')
+
     <div class="">  
             <div class="container">
                 <h3 class="mb-5">Selamat Datang, Admin</h3> 
-
+                
                 <div class="button-action"> 
-                    <a href="" class=" btn-tambah-katalog" type="submit">+ desain katalog</a>
+                    <!-- <a href="/tambah_katalog" class=" btn-tambah-katalog" type="submit">+ desain katalog</a> -->
+                    <button type="button" class="btn btn-tambah-katalog" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        + desain katalog
+                    </button>
+                    @include('menu_page_katalog.tambah_katalog')
                 </div>
 
-                <div class="row row-cols-1 row-cols-md-4 g-4 py-2">
-                    <div class="col">
-                        <div class="card card-katalog" >
-                        <img src="../image/kue.png" class="card-img-top " alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Deskripsi</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 py-2">
+                    @foreach ($katalogs as $katalog)
+                        <div class="col-lg-3 col-md-6">
+                        <a href="edit_katalog" class="text-decoration-none">
+                            <div class="card card-katalog">
+                                <img src="{{ asset('katalog_foto/'.$katalog->foto) }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Deskripsi</h5>
+                                    <p class="card-text">{{ $katalog->deskripsi }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div> 
-            </div>
+                    @endforeach
+                </div>
+
         </div>  
     </div>
-        
+    
 
 @endsection

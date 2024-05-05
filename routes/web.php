@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Katalog;
+use App\Http\Controllers\Page_Katalog_Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\Page_Katalog;
 use Illuminate\Http\Request;
 
 /*
@@ -41,7 +44,10 @@ Route::post('/login', [UserController::class, 'login_action'])->name('login.acti
  Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
  // router untuk katalog
- Route::get('/katalog', [UserController::class, 'katalog'])->name('katalog');
+ Route::get('/katalog', [Page_Katalog_Controller::class, 'katalog'])->name('katalog');
+//  route tambah katalog
+ Route::get('/tambah_katalog', [Page_Katalog_Controller::class, 'tambahkatalog'])->name('tambah_katalog');
+ Route::post('/tambah_katalog_action', [Page_Katalog_Controller::class, 'tambahkatalog_action'])->name('tambah_katalog_action');
 
 Route::get('/forgetpass', [UserController::class, 'forgetpass'])->middleware('guest')->name('forgetpass');
  

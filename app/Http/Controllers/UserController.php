@@ -50,13 +50,7 @@ class UserController extends Controller
         $data['title'] = 'Dashboard';
         return view('menu_page_dashboard.dashboard', $data);
     }
-    public function katalog() {
-        // untuk menampilkan judul halaman yg disimpan dalam var data 
-        // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
-        $data['title'] = 'Katalog';
-        return view('menu_page_katalog.katalog', $data);
-    }
-
+   
     public function forgetpass() {
         // untuk menampilkan judul halaman yg disimpan dalam var data 
         // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
