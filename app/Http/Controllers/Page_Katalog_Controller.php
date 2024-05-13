@@ -25,7 +25,12 @@ class Page_Katalog_Controller extends Controller
     }
     public function tambahkatalog_action(Request $request){
         // dd($request->all());
-        $data = katalog::create($request->all());
+        $validatedData = $request->validate([
+            'foto' => 'required|image|max:2048', // validasi untuk foto
+            'deskripsi' => 'required', // validasi untuk deskripsi
+        ]);
+
+        $data = katalog::create($validatedData);
 
         if($request->hasFile('foto')){
             $request->file("foto")->move('katalog_foto/', $request->file('foto')->getClientOriginalName());
@@ -34,4 +39,38 @@ class Page_Katalog_Controller extends Controller
         }
         return redirect()->route('katalog')->with('success', 'Data Berhasil Di Tambah');
     }
+    public function editkatalog($id) {
+        // untuk menampilkan judul halaman yg disimpan dalam var data 
+        // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
+        $katalogs = Katalog::findOrFail($id);
+        return view('menu_page_katalog.edit_katalog', compact('katalog'));
+        // $data['title'] = 'Tambah Katalog';
+        // return view('menu_page_katalog.edit_katalog', $data);
+    }
+    public function hapuskatalog($id) {
+
+        $katalogs = Katalog::findOrFail($id);
+        $katalogs->delete();
+        
+        return redirect()->route('katalog')->with('success', 'Data Berhasil Di hapus');
+    }
+    
+    public function updatekatalog(Request $request, $id=null) {
+        if($request->method() == 'POST'){
+            $katalogs = Katalog::find($id);
+            
+            if($request->hasFile('foto')){
+                $request->file("foto")->move('katalog_foto/', $request->file('foto')->getClientOriginalName());
+                $katalogs->foto = $request->file('foto')->getClientOriginalName();
+            }
+        
+            if($request->filled('deskripsi')){
+                $katalogs->deskripsi = $request->deskripsi;
+            }
+    
+            $katalogs->save();
+            return redirect()->back();
+        }
+    }
+    
 }

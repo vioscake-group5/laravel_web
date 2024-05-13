@@ -9,5 +9,6 @@ class katalog extends Model
 {
     use HasFactory;
     protected $table = 'katalog';
+    protected $primaryKey = 'id';
     protected $guarded =[];
 }

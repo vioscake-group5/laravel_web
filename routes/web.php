@@ -48,6 +48,11 @@ Route::post('/login', [UserController::class, 'login_action'])->name('login.acti
 //  route tambah katalog
  Route::get('/tambah_katalog', [Page_Katalog_Controller::class, 'tambahkatalog'])->name('tambah_katalog');
  Route::post('/tambah_katalog_action', [Page_Katalog_Controller::class, 'tambahkatalog_action'])->name('tambah_katalog_action');
+//  route edit katalog
+Route::get('/edit_katalog/{id}', [Page_Katalog_Controller::class, 'editkatalog'])->name('edit_katalog');
+Route::get('/hapus_katalog/{id}', [Page_Katalog_Controller::class, 'hapuskatalog'])->name('hapus_katalog');
+Route::match(['get', 'post'], '/update_katalog/{id}' , [Page_Katalog_Controller::class, 'updatekatalog'])->name('update_katalog');
+
 
 Route::get('/forgetpass', [UserController::class, 'forgetpass'])->middleware('guest')->name('forgetpass');
  
