@@ -53,6 +53,10 @@ Route::get('/edit_katalog/{id}', [Page_Katalog_Controller::class, 'editkatalog']
 Route::get('/hapus_katalog/{id}', [Page_Katalog_Controller::class, 'hapuskatalog'])->name('hapus_katalog');
 Route::match(['get', 'post'], '/update_katalog/{id}' , [Page_Katalog_Controller::class, 'updatekatalog'])->name('update_katalog');
 
+ // pesanan
+ Route::get('/pesanan', [UserController::class, 'pesanan'])->name('pesanan');
+  // laporan
+  Route::get('/laporan', [UserController::class, 'pesanan'])->name('laporan');
 
 Route::get('/forgetpass', [UserController::class, 'forgetpass'])->middleware('guest')->name('forgetpass');
  
