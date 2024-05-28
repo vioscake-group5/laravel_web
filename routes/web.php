@@ -36,4 +36,4 @@ Route::get('/', function () {
  // pesanan
  Route::get('/pesanan', [UserController::class, 'pesanan'])->name('pesanan');
   // laporan
- Route::get('/laporan', [UserController::class, 'pesanan'])->name('laporan');
+ Route::get('/laporan', [UserController::class, 'laporan'])->name('laporan');
