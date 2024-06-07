@@ -6,14 +6,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\Page_Katalog;
 use Illuminate\Http\Request;
+use App\Http\Controllers\LoginController;
+use App\Http\Middleware\SessionLogin;
 
 Route::get('/', function () {
     return view('head', ['title' => 'Head']);
 })->name('head');
 
 // auth admin
- Route::post('/login', [UserController::class, 'login_action'])->name('login.action');
- Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login-auth', [LoginController::class, 'login'])->name('login.post');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
  Route::get('/forgetpass', [UserController::class, 'forgetpass'])->middleware('guest')->name('forgetpass');
  Route::post('/forgetpass', [UserController::class, 'forgetpass_action'])->middleware('guest')->name('forgetpass.action');
  Route::get('/reset_password/{token}', [UserController::class, 'reset_password'])->middleware('guest')->name('password.reset');
@@ -21,7 +24,7 @@ Route::get('/', function () {
  Route::get('/send-email', [UserController:: class, 'index']);
 
  // router untuk dashboard
- Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+ Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard')->middleware(SessionLogin::class);
 
  // router untuk katalog
  Route::get('/katalog', [Page_Katalog_Controller::class, 'katalog'])->name('katalog');
@@ -34,6 +37,6 @@ Route::get('/', function () {
  Route::match(['get', 'post'], '/update_katalog/{id}' , [Page_Katalog_Controller::class, 'updatekatalog'])->name('update_katalog');
 
  // pesanan
- Route::get('/pesanan', [UserController::class, 'pesanan'])->name('pesanan');
+ Route::get('/pesanan', [UserController::class, 'pesanan'])->name('pesanan')->middleware(SessionLogin::class);
   // laporan
- Route::get('/laporan', [UserController::class, 'laporan'])->name('laporan');
+ Route::get('/laporan', [UserController::class, 'laporan'])->name('laporan')->middleware(SessionLogin::class);

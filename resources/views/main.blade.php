@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Sidebar With Bootstrap</title>
+    <title>@yield('title', $title)</title>
     <!-- link icon bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -17,6 +17,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/katalog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tambah_katalog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/tambah_katalog.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pesanan.css') }}">
     <!-- link font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,7 +89,7 @@
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">
                         Cancel
                     </button>
-                    <a class="btn btn-primary" href="{{ route('login') }}">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
                 </div>
             </div>
         </div>

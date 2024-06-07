@@ -1,0 +1,76 @@
+/* css katalog */
+
+.card .card-pesanan {
+    border-radius: 21px;
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    max-height: 300px;
+    min-height: 250px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.card-title-pesanan {
+    margin-bottom: 14px;
+    overflow-wrap: break-word;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    color: #000000;
+}
+.card-text-pesanan {
+    align-self: flex-start;
+    text-align: left;
+    overflow-wrap: break-word;
+    font-family: "Poppins";
+    padding-left: 10px;
+    color: #8c8c8c;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    color: var(--text-gray, #878787);
+    max-height: 100px; /* Atur tinggi maksimum elemen */
+    overflow-y: auto; /* Aktifkan scroll vertikal jika konten melebihi tinggi maksimum */
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on small screens */
+}
+
+.d-flex.justify-content-between {
+    justify-content: space-between; /* Maintain horizontal alignment */
+}
+
+@media (min-width: 768px) {
+    /* For screens wider than 768px (medium and larger) */
+    .d-flex {
+        flex-direction: row; /* Revert to horizontal layout on larger screens */
+    }
+}
+
+.btn.btn-rincian {
+    font-size: 17px;
+    font-weight: 500;
+    box-sizing: border-box;
+    border-radius: 6px;
+    color: #ffffff;
+    /* color: #ffffff;  - Uncomment for white text */
+    /* border: 2px solid #6b5048;  - Uncomment for border */
+    background-color: #6b5048;
+    padding: 6px;
+    margin: 0 5px;
+}
+.btn.btn-konfirmasi {
+    font-size: 17px;
+    font-weight: 500;
+    box-sizing: border-box;
+    border-radius: 6px;
+    color: #ffffff;
+    /* color: #ffffff;  - Uncomment for white text */
+    /* border: 2px solid #6b5048;  - Uncomment for border */
+    background-color: #6b5048;
+    padding: 6px;
+}

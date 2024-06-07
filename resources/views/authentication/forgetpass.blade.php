@@ -20,7 +20,6 @@
             </div>
             @endif
 
-        <!-- {{route('login.action')}} -->
         <form method="post" action="{{route('forgetpass.action')}}" class="px-5 py-1">
         @csrf
             <div class="mb-3">

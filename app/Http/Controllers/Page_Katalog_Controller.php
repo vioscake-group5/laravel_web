@@ -14,14 +14,13 @@ class Page_Katalog_Controller extends Controller
         $data['title'] = 'Katalog';
         $data['katalogs'] = $katalogs;
 
-        // Mengirim data ke view 'katalog'
-        return view('menu_page_katalog.katalog', $data);
+        return view('katalog.katalog', $data);
     }
     public function tambahkatalog() {
         // untuk menampilkan judul halaman yg disimpan dalam var data 
         // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
         $data['title'] = 'Tambah Katalog';
-        return view('menu_page_katalog.tambah_katalog', $data);
+        return view('katalog.tambah_katalog', $data);
     }
     public function tambahkatalog_action(Request $request){
         // dd($request->all());
@@ -40,12 +39,9 @@ class Page_Katalog_Controller extends Controller
         return redirect()->route('katalog')->with('success', 'Data Berhasil Di Tambah');
     }
     public function editkatalog($id) {
-        // untuk menampilkan judul halaman yg disimpan dalam var data 
-        // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
         $katalogs = Katalog::findOrFail($id);
-        return view('menu_page_katalog.edit_katalog', compact('katalog'));
-        // $data['title'] = 'Tambah Katalog';
-        // return view('menu_page_katalog.edit_katalog', $data);
+        return view('katalog.edit_katalog', compact('katalog'));
+
     }
     public function hapuskatalog($id) {
 

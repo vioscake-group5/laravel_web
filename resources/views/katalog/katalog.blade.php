@@ -10,7 +10,7 @@
                 data-bs-target="#staticBackdrop">
                 + desain katalog
             </button>
-            @include('menu_page_katalog.tambah_katalog')
+            @include('katalog.tambah_katalog')
         </div>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 py-2">
@@ -29,7 +29,7 @@
                 </a>
             </div>
             @endforeach
-            @include('menu_page_katalog.edit_katalog')
+            @include('katalog.edit_katalog')
         </div>
 
     </div>

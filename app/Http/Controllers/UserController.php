@@ -14,60 +14,32 @@ use Illuminate\Auth\Events\PasswordReset;
 
 class UserController extends Controller
 {
-    
-    // controller untuk login
-        public function login() {
-            // untuk menampilkan judul halaman yg disimpan dalam var data 
-            // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
-            $data['title'] = 'Login';
-            return view('authentication.login', $data);
-        }
-        
-        // controller untuk btn login
-        public function login_action(Request $request) {
-            // Validasi data yang diterima dari formulir login
-            $credentials = $request->validate([
-                'username'=> ['required', 'string'],
-                'password'=> ['required'],
-            ]);
-            // Mencoba untuk melakukan otentikasi pengguna dengan username dan password yang diterima
-            if (Auth::attempt($credentials)) {
-                // Jika otentikasi berhasil, regenerate session
-                $request->session()->regenerate();
-                
-                // Arahkan pengguna ke halaman dashboard
-                return redirect()->route('dashboard')->with('success', 'Login berhasil!');
-            }
-            
-            // Jika otentikasi gagal, arahkan kembali pengguna ke halaman login dengan pesan gagal
-            return redirect()->route('login')->withErrors(['password' => 'Username atau password salah']);
-            
-        }
-
     public function dashboard() {
-        // untuk menampilkan judul halaman yg disimpan dalam var data 
-        // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
         $data['title'] = 'Dashboard';
-        return view('menu_page_dashboard.dashboard', $data);
+        return view('dashboard.dashboard', $data);
+    }
+
+    public function katalog() {
+        $data['title'] = 'Pesanan';
+        return view('katalog.katalog', $data);
+    }
+
+    public function tambahkatalog() {
+        $data['title'] = 'Tambah Katalog';
+        return view('katalog.tambah_katalog', $data);
     }
 
     public function pesanan() {
-        // untuk menampilkan judul halaman yg disimpan dalam var data 
-        // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
         $data['title'] = 'Pesanan';
         return view('pesanan.pesanan', $data);
     }
 
     public function laporan() {
-        // untuk menampilkan judul halaman yg disimpan dalam var data 
-        // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
         $data['title'] = 'Laporan';
         return view('laporan.laporan', $data);
     }
    
     public function forgetpass() {
-        // untuk menampilkan judul halaman yg disimpan dalam var data 
-        // Variabel $data akan digunakan untuk menyediakan data yang akan digunakan dalam tampilan (view).
         $data['title'] = 'Forget Password';
         return view('authentication.forgetpass', $data);
     }
@@ -119,11 +91,4 @@ class UserController extends Controller
                     : back()->withErrors(['email' => [__($status)]]);
 
     }
-
-    // public function index(){
-    //     Mail::to('moacantik@gmail.com')->send(new TestSendEmail());
-                
-                
-                
-    // }
 }

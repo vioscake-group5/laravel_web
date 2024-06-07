@@ -16,7 +16,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Poppins:ital,wght@0,100;0,300;0,500;0,900;1,100&family=Rancho&family=Reenie+Beanie&display=swap"
         rel="stylesheet">
-    <title>@yield('title', $title)</title>
+    {{-- <title>@yield('title', $title)</title> --}}
+    <title>VIOSCAKE</title>
 </head>
 
 <body>
