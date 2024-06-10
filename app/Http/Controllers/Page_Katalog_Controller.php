@@ -116,70 +116,6 @@ class Page_Katalog_Controller extends Controller
             // Tindakan jika gagal
             return back()->withErrors(['message' => 'Gagal mengunggah data ke API']);
         }
-
-        /*
-            // Validasi data
-            $validatedData = $request->validate([
-                'nama_kue' => 'required',
-                'deskripsi' => 'required',
-                'harga' => 'required',
-                'gambar' => 'required|image|max:2048',
-            ]);
-
-            // Ambil token dari sesi
-            $token = Session::get('external_token');
-
-            // Periksa apakah token ada
-            if (!$token) {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
-
-            // Mengirim data ke API dengan file
-            $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . $token,
-            ])->attach(
-                'gambar', file_get_contents($request->file('gambar')->getRealPath()), $request->file('gambar')->getClientOriginalName()
-            )->post('https://vioscake.my.id/api/cakes', [
-                'nama_kue' => $validatedData['nama_kue'],
-                'deskripsi' => $validatedData['deskripsi'],
-                'harga' => $validatedData['harga'],
-            ]);
-
-            // Periksa respons dari API
-            if ($response->successful()) {
-                // Mendapatkan nama file dari respons API
-                $apiResponse = $response->json();
-
-                // Periksa apakah 'gambar' ada dalam respons API
-                if (isset($apiResponse['gambar'])) {
-                    $gambarNameDatabase = $apiResponse['gambar']; // asumsikan nama file disimpan dalam 'gambar'
-
-                    // Menunggu hingga nama file terlihat di direktori
-                    $startTime = time();
-                    while (!file_exists('katalog_gambar/' . $gambarNameDatabase)) {
-                        // Tambahkan kondisi berhenti jika waktu tunggu melebihi batas tertentu (misalnya, 10 detik)
-                        if (time() - $startTime > 10) {
-                            return back()->withErrors(['message' => 'Gagal menyimpan data. Nama file tidak ditemukan di direktori']);
-                        }
-                        // Jeda sebelum cek kembali
-                        sleep(1);
-                    }
-
-                    // Pindahkan file ke direktori lokal dengan nama file yang sesuai dengan yang ada di database
-                    $request->file('gambar')->move('katalog_gambar/', $gambarNameDatabase);
-
-                    // Tindakan setelah berhasil
-                    return redirect()->route('katalog')->with('success', 'Data Berhasil Ditambah');
-                } else {
-                    // Jika respons API tidak mengandung kunci 'gambar', kembalikan respons yang sesuai
-                    return back()->withErrors(['message' => 'Gagal menyimpan data. Respons API tidak mengandung nama gambar']);
-                }
-            } else {
-                // Tindakan jika gagal
-                return back()->withErrors(['message' => 'Gagal mengunggah data ke API']);
-            }
-        */
-
     }
 
     public function editkatalog($id) {
@@ -286,6 +222,7 @@ class Page_Katalog_Controller extends Controller
     }
 
     public function hapuskatalog($id) {
+        // langsung di edit nya
         /*
             $katalogs = Katalog::findOrFail($id);
             $katalogs->delete();
