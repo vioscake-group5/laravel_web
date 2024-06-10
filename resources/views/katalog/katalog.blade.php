@@ -12,18 +12,25 @@
             </button>
             @include('katalog.tambah_katalog')
         </div>
-
+        
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 py-2">
-            @foreach ($katalogs as $katalog)
+            @foreach ($cakes as $cake)
             <div class="col-lg-3 col-md-6">
-                <a href="/edit_katalog/{{ $katalog->id }}" class="text-decoration-none" data-bs-toggle="modal"
-                    data-bs-target="#myModal-{{$katalog->id}}">
+                <a 
+                    href="/edit_katalog/{{ $cake['id'] }}" 
+                    class="text-decoration-none" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#myModal-{{$cake['id']}}"
+                >
                     <div class="card card-katalog">
-                        <img src="{{ asset('katalog_foto/'.$katalog->foto) }}" class="card-img-top" alt="..."
+                        <img 
+                            src="{{ asset($cake['gambar']) }}" 
+                            class="card-img-top" 
+                            alt="..."
                             name="foto">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Deskripsi</h5>
-                            <p class="card-text">{{ $katalog->deskripsi }}</p>
+                            <h5 class="card-title text-center">{{ $cake['nama_kue'] }}</h5>
+                            <p class="card-text">{{ $cake['deskripsi'] }}</p>
                         </div>
                     </div>
                 </a>

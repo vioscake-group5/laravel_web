@@ -14,17 +14,54 @@
       <div class="modal-body">
         <form method="post" action="/tambah_katalog_action" enctype="multipart/form-data" class="dropzone">
           @csrf
-              <div class="container d-flex justify-content-center mb-3">
-                  <div class="card_tambah_katalog" style="width: 18rem;">
-                    <!-- <img src="../image/kue.png" class="mb-2" alt="..."> -->
-                    <input type="file" class="form-control" id="exampleInputEmail1" name="foto" placeholder="Masukkan Foto" required>
-                  </div>
+              <div class="mb-3">
+                <div class="container d-flex justify-content-center"  style="width: 18rem;">
+                  <input 
+                      type="text" 
+                      class="form-control" 
+                      name="nama_kue"  
+                      placeholder="Nama Kue" 
+                      required
+                  />
+                </div>  
               </div>
 
               <div class="mb-3">
                 <div class="container d-flex justify-content-center"  style="width: 18rem;">
-                  <input type="text" class="form-control" name="deskripsi"  placeholder="Tuliskan Detail Deskripsi " required>
+                  <input 
+                      type="text" 
+                      class="form-control" 
+                      name="deskripsi"  
+                      placeholder="Tuliskan Detail Deskripsi " 
+                      required
+                  />
                 </div>  
+              </div>  
+
+              <div class="mb-3">
+                <div class="container d-flex justify-content-center"  style="width: 18rem;">
+                  <input 
+                      type="text" 
+                      class="form-control" 
+                      name="harga"  
+                      placeholder="Harga Kue" 
+                      required
+                  />
+                </div>  
+              </div>
+
+              <div class="container d-flex justify-content-center mb-3">
+                <div class="card_tambah_katalog" style="width: 18rem;">
+                  <!-- <img src="../image/kue.png" class="mb-2" alt="..."> -->
+                  <input 
+                      type="file" 
+                      class="form-control" 
+                      id="exampleInputEmail1" 
+                      name="gambar" 
+                      placeholder="Masukkan Foto" 
+                      required
+                  />
+                </div>
               </div>
 
               <div class="modal-footer">

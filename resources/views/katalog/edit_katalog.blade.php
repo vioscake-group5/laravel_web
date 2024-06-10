@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
-@foreach ($katalogs as $k)
-<div class="modal" id="myModal-{{$k->id}}" tabindex="-1">
+@foreach ($cakes as $cake)
+<div class="modal fade" id="myModal-{{$cake['id']}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,22 +11,22 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="{{url('/update_katalog/'.$k->id)}}" enctype="multipart/form-data">
+                <form method="post" action="{{url('/update_katalog/'.$cake['id'])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="container d-flex justify-content-center mb-3">
                         <div class="card_tambah_katalog" style="width: 18rem;">
-                            <img id="modal-foto-{{$k->id}}" src="{{ asset('katalog_foto/'.$k->foto) }}" class="mb-2" alt="Foto Katalog" style="max-width: 18rem; max-height: 12rem">
-                            <input type="file" class="form-control" id="exampleInputFile-{{$k->id}}" name="foto" placeholder="Unggah Foto Baru">
+                            <img id="modal-foto-{{$cake['id']}}" src="{{ asset('katalog_foto/'.$cake['gambar']) }}" class="mb-2" alt="Foto Katalog" style="max-width: 18rem; max-height: 12rem">
+                            <input type="file" class="form-control" id="exampleInputFile-{{$cake['id']}}" name="foto" placeholder="Unggah Foto Baru">
                         </div>
                     </div>
                     <div class="mb-3">
                         <div class="container d-flex justify-content-center"  style="width: 18rem;">
-                            <input type="text" class="form-control" name="deskripsi" id="modal-deskripsi-{{$k->id}}" placeholder="Tuliskan Detail Deskripsi" value="{{$k->deskripsi}}">
+                            <input type="text" class="form-control" name="deskripsi" id="modal-deskripsi-{{$cake['id']}}" placeholder="Tuliskan Detail Deskripsi" value="{{$cake['deskripsi']}}">
                         </div>  
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="/hapus_katalog/{{ $k->id }}" class="btn btn-danger delete-btn" data-id="{{ $k->id }}" ><i class="bi bi-trash-fill"></i></a>
+                        <a href="/hapus_katalog/{{ $cake['id'] }}" class="btn btn-danger delete-btn" data-id="{{ $cake['id'] }}" ><i class="bi bi-trash-fill"></i></a>
                     </div>
                 </form>  
             </div>
