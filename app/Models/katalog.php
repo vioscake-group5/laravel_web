@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class katalog extends Model
 {
     use HasFactory;
-    protected $table = 'katalog';
-    protected $primaryKey = 'id';
-    protected $guarded =[];
+    
+    protected $table = 'cakes';
+    
+    protected $fillable = [
+        'nama_kue', 
+        'deskripsi', 
+        'harga', 
+        'gambar'
+    ];
 }
