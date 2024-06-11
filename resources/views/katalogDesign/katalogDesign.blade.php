@@ -1,8 +1,6 @@
 @extends('main')
 @section('konten')
 
-
-
 <div class="">
     <div class="container">
 
@@ -23,7 +21,7 @@
             <!-- <a href="/tambah_katalog" class=" btn-tambah-katalog" type="submit">+ desain katalog</a> -->
             <button type="button" class="btn btn-tambah-katalog" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop">
-                + Base Katalog
+                + Desain katalog
             </button>
             @include('katalog.tambah_katalog')
         </div>
