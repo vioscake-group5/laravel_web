@@ -136,7 +136,8 @@
                     }
 
                     $.ajax({
-                        url: 'https://vioscake.my.id/api/cakes/' + katalogId,
+                        // url: 'https://vioscake.my.id/api/cakes/' + katalogId,
+                        url: 'http://192.168.1.5:8000/api/cakes/' + katalogId,
                         type: 'DELETE',
                         headers: {
                             'Authorization': 'Bearer ' + token

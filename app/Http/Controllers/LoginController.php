@@ -24,7 +24,8 @@ class LoginController extends Controller
 
         $response = Http::withHeaders([
             'User' => 'Website'
-        ])->post('https://vioscake.my.id/api/login', [
+        // ])->post('https://vioscake.my.id/api/login', [
+        ])->post('http://127.0.0.1:8000/api/login', [
             'email' => $request->email,
             'password' => $request->password
         ]);

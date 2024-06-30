@@ -13,7 +13,7 @@
                 </a>
             </div>
             <div class="button-action">
-                <a href="{{ route('katalogDesign') }}" class="btn btn-tambah-katalog">
+                <a href="{{ route('katalog_desain') }}" class="btn btn-tambah-katalog">
                     Design Cake
                 </a>
             </div>

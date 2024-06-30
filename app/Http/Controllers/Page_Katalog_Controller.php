@@ -32,7 +32,8 @@ class Page_Katalog_Controller extends Controller
         $response = Http::withHeaders([
             'Authorization' => 'Bearer' . $token,
             // 'User' => 'Website'
-        ])->get('https://vioscake.my.id/api/cakes');
+        // ])->get('https://vioscake.my.id/api/cakes');
+        ])->get('http://127.0.0.1:8000/api/cakes');
 
         // Check if the request was successful
         if ($response->successful()) {
@@ -42,7 +43,7 @@ class Page_Katalog_Controller extends Controller
             return view('katalog.katalog', $cakes, $data);
 
         } else {
-            return response()->json(['error' => 'Failed to fetch cakes'], $response->status());
+            return view('authentication.login');
         }
 
     }
@@ -53,7 +54,7 @@ class Page_Katalog_Controller extends Controller
         $data['title'] = 'Tambah Katalog';
         return view('katalog.tambah_katalog', $data);
     }
-    public function tambahkatalog_action(Request $request){
+    public function tambahkatalog_action(Request $request) {
         /*
             dd($request->all());
             $validatedData = $request->validate([
@@ -98,11 +99,11 @@ class Page_Katalog_Controller extends Controller
         ->attach(
             'gambar', file_get_contents($request->file('gambar')->getRealPath()), $gambarName
         )
-        ->post('https://vioscake.my.id/api/cakes', [
+        // ->post('https://vioscake.my.id/api/cakes', [
+        ->post('http://127.0.0.1:8000/api/cakes', [
             'nama_kue' => $validatedData['nama_kue'],
             'deskripsi' => $validatedData['deskripsi'],
             'harga' => $validatedData['harga'],
-            // 'gambar' => $gambarName,
         ]);
 
         // check api response
@@ -194,7 +195,8 @@ class Page_Katalog_Controller extends Controller
         ->attach(
             'gambar', file_get_contents($request->file('gambar')->getRealPath()), $gambarName
         )
-        ->post('https://vioscake.my.id/api/cakes/' . $id, [
+        // ->post('https://vioscake.my.id/api/cakes/' . $id, [
+        ->post('http://127.0.0.1:8000/api/cakes/' . $id, [
             // Data yang ingin Anda perbarui, misalnya:
             'nama_kue' => $validatedData['nama_kue'],
             'deskripsi' => $validatedData['deskripsi'],

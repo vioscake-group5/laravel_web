@@ -8,36 +8,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Katalog</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Desain</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="post" action="/tambah_katalog_action" enctype="multipart/form-data" class="dropzone">
+        <form method="post" action="/tambah_katalog_desain_action" enctype="multipart/form-data" class="dropzone">
           @csrf
-              <div class="mb-3">
-                <div class="container d-flex justify-content-center"  style="width: 18rem;">
-                  <input 
-                      type="text" 
-                      class="form-control" 
-                      name="nama_kue"  
-                      placeholder="Nama Kue" 
-                      required
-                  />
-                </div>  
-              </div>
-
-              <div class="mb-3">
-                <div class="container d-flex justify-content-center"  style="width: 18rem;">
-                  <input 
-                      type="text" 
-                      class="form-control" 
-                      name="deskripsi"  
-                      placeholder="Tuliskan Detail Deskripsi " 
-                      required
-                  />
-                </div>  
-              </div>  
-
               <div class="mb-3">
                 <div class="container d-flex justify-content-center"  style="width: 18rem;">
                   <input 
@@ -52,13 +28,12 @@
 
               <div class="container d-flex justify-content-center mb-3">
                 <div class="card_tambah_katalog" style="width: 18rem;">
-                  <!-- <img src="../image/kue.png" class="mb-2" alt="..."> -->
                   <input 
                       type="file" 
                       class="form-control" 
                       id="exampleInputEmail1" 
                       name="gambar" 
-                      placeholder="Masukkan Foto" 
+                      placeholder="jpg" 
                       required
                   />
                 </div>

@@ -9,11 +9,11 @@ class katalogDesign extends Model
 {
     use HasFactory;
     
-    protected $table = 'design';
+    protected $table = 'desains';
     
     protected $fillable = [
-        'design', 
-        'deskripsi', 
+        // 'design', 
+        // 'deskripsi', 
         'harga', 
         'gambar'
     ];
